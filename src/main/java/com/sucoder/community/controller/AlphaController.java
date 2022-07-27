@@ -1,5 +1,6 @@
 package com.sucoder.community.controller;
 
+import com.sucoder.community.util.CommunityUtil;
 import org.apache.coyote.Request;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -48,4 +49,13 @@ public class AlphaController {
 
     //响应JSON数据(异步请求)
     //java对象---》json字符串---》 JS对象
+
+
+    //ajax实例
+    @RequestMapping(path = "/ajax",method = RequestMethod.POST)
+    @ResponseBody
+    public String testAjax(String name,int age){
+        System.out.println(name+": "+age);
+        return CommunityUtil.getJSONString(0,"操作成功");
+    }
 }
